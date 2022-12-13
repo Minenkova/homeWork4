@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeWork4</title>
+  </head>
+  <body>
+    <script>
+      console.log("========task1========");
+
+      let array = ["455", 87.15, true, undefined, 7, null, "false", [], {}];
+
+      for (key of array) {
+        if (!isNaN(key)) {
+          key += 3;
+        }
+        console.log(`typeof key ${typeof key}`);
+        console.log(key);
+      }
+
+      console.log("========task2========");
+
+      let number = +prompt("Enter an integer!");
+
+      let newArray = [];
+      let copyArr = [];
+      newArray.length = number;
+
+      for (let i = 0; i < newArray.length; i++) {
+        newArray[i] = Math.floor(Math.random() * 10);
+        copyArr = Object.assign([], newArray);
+      }
+      console.log(newArray);
+      copyArr = Object.assign([], newArray);
+
+      for (let i = 2; i < copyArr.length; i += 3) {
+        copyArr[i] *= 3;
+      }
+      console.log(copyArr);
+
+      console.log("========task3========");
+
+      let student1 = {
+        firsName: "Tetiana",
+        lastName: "Minenkova",
+        mark: 100,
+      };
+
+      let student2 = { ...student1 };
+      student2.mark = 90;
+
+      let student3 = Object.assign({}, student1);
+      student3.mark = 80;
+
+      let averageMark = (student1.mark + student2.mark + student3.mark) / 3;
+
+      console.log(`average  mark of all students = ${averageMark}`);
+      console.log(`student1.mark = ${student1.mark}`);
+      console.log(`student2.mark = ${student2.mark}`);
+      console.log(`student3.mark = ${student3.mark}`);
+
+      for (let key in student1) {
+        console.log(`key = ${key}, value = ${student1[key]}`);
+      }
+    </script>
+  </body>
+</html>
